@@ -1,0 +1,10 @@
+__pycache__
+./__pycache__
+./*/__pycache__
+./temp/no.txt
+./temp/yes.txt
+./config/proxy
+./config/post_proxy
+./config/result
+./__pycache__/*
+./.idea/*
