@@ -1,184 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9707257d-9abb-4771-8fdb-244a7d8171fc" name="Default Changelist" comment="" />
+    <list default="true" id="9707257d-9abb-4771-8fdb-244a7d8171fc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/building_spider/54fire_main.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/building_spider/54fire_max.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/building_spider/filter_project.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/building_spider/filter_project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/building_spider/fire_main.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/building_spider/fire_max.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1119780874">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="29" />
-          <entry key="project.open.time.0" value="16" />
-          <entry key="project.open.time.1" value="4" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.3" value="3" />
-          <entry key="project.open.time.4" value="4" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="30" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="buyao" value="3" />
-          <entry key="company" value="15" />
-          <entry key="company2" value="1" />
-          <entry key="company3" value="1" />
-          <entry key="company_title" value="6" />
-          <entry key="company_titles" value="5" />
-          <entry key="finally" value="2" />
-          <entry key="finally2" value="2" />
-          <entry key="md" value="1" />
-          <entry key="no" value="8" />
-          <entry key="post_proxy" value="3" />
-          <entry key="project" value="2" />
-          <entry key="project2" value="5" />
-          <entry key="proxy" value="7" />
-          <entry key="py" value="50" />
-          <entry key="res_pro" value="1" />
-          <entry key="result" value="34" />
-          <entry key="result2" value="3" />
-          <entry key="result3" value="1" />
-          <entry key="txt" value="9" />
-          <entry key="xpf" value="4" />
-          <entry key="xpf_fin" value="15" />
-          <entry key="xpf_finally" value="1" />
-          <entry key="xpf_finally_" value="10" />
-          <entry key="xpf_pro" value="27" />
-          <entry key="xpf_pro_tmp" value="3" />
-          <entry key="xpf_pro_tmp_" value="1" />
-          <entry key="yes" value="8" />
-          <entry key="youer" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="179" />
-          <entry key="Python" value="50" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="buyao" value="99" />
-          <entry key="company" value="679" />
-          <entry key="company2" value="41" />
-          <entry key="company3" value="2" />
-          <entry key="company_title" value="2955" />
-          <entry key="company_titles" value="2153" />
-          <entry key="finally" value="11" />
-          <entry key="finally2" value="2" />
-          <entry key="md" value="265" />
-          <entry key="no" value="59" />
-          <entry key="post_proxy" value="22" />
-          <entry key="project" value="2" />
-          <entry key="project2" value="1" />
-          <entry key="proxy" value="257" />
-          <entry key="py" value="106408" />
-          <entry key="res_pro" value="1932" />
-          <entry key="result" value="70" />
-          <entry key="result2" value="1" />
-          <entry key="result3" value="3" />
-          <entry key="txt" value="1720" />
-          <entry key="xpf" value="107" />
-          <entry key="xpf_fin" value="135" />
-          <entry key="xpf_finally" value="1" />
-          <entry key="xpf_finally_" value="73" />
-          <entry key="xpf_pro" value="1115" />
-          <entry key="xpf_pro_tmp" value="1" />
-          <entry key="yes" value="40" />
-          <entry key="youer" value="98" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Markdown" value="265" />
-          <entry key="PLAIN_TEXT" value="11579" />
-          <entry key="Python" value="106408" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/building_spider/building_spider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1564687226588" expanded="true" signature="266:2382" ph="..." />
-                <marker date="1564687226588" expanded="true" signature="2382:2383" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/building_spider/project_spider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/building_spider/detail_spider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3690">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <marker date="1564654722771" expanded="true" signature="256:1386" ph="..." />
-                <marker date="1564654722771" expanded="true" signature="1426:2141" ph="..." />
-                <marker date="1564654722771" expanded="true" signature="1948:2141" ph="..." />
-                <marker date="1564654722771" expanded="true" signature="3476:4506" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/building_spider/filter_project.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-                <marker date="1564652331531" expanded="true" signature="86:87" ph="..." />
-                <marker date="1564652331531" expanded="true" signature="375:380" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/proxy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+            <state relative-caret-position="147">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -186,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/db/redis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="147">
               <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
             </state>
           </provider>
@@ -195,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/building_spider/save.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="147">
               <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
@@ -204,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            <state relative-caret-position="462">
+              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -253,6 +108,9 @@
       <find>兰州高新区东部科技新城园区H地块房建工程'</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -278,7 +136,6 @@
         <option value="$PROJECT_DIR$/core/building_spider/xpf_pro" />
         <option value="$PROJECT_DIR$/core/building_spider/get_post.py" />
         <option value="$PROJECT_DIR$/core/building_spider/result" />
-        <option value="$PROJECT_DIR$/core/building_spider/filter_project.py" />
         <option value="$PROJECT_DIR$/core/building_spider/post_proxy" />
         <option value="$PROJECT_DIR$/core/building_spider/project_spider.py" />
         <option value="$PROJECT_DIR$/core/building_spider/detail_spider.py" />
@@ -288,17 +145,20 @@
         <option value="$PROJECT_DIR$/core/building_spider/save.py" />
         <option value="$PROJECT_DIR$/core/building_spider/proxy" />
         <option value="$PROJECT_DIR$/core/building_spider/building_spider.py" />
-        <option value="$PROJECT_DIR$/setting.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/config/proxy" />
+        <option value="$PROJECT_DIR$/setting.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/core/building_spider/filter_project.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="877" />
+    <option name="y" value="125" />
     <option name="width" value="1865" />
-    <option name="height" value="1057" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -310,13 +170,40 @@
         <subPane>
           <expand>
             <path>
-              <item name="build_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="build_spider" type="462c0819:PsiDirectoryNode" />
+              <item name="BuildSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BuildSpider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="build_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="build_spider" type="462c0819:PsiDirectoryNode" />
+              <item name="BuildSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BuildSpider" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BuildSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BuildSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BuildSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BuildSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="building_spider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BuildSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BuildSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BuildSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BuildSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BuildSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BuildSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -325,6 +212,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -485,19 +373,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1865" height="1057" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18221258" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17514871" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.54507774" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48463687" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32953367" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
@@ -505,37 +394,9 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18221258" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36165804" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32953367" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/re.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="222" selection-start-line="222" selection-end-line="222" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/re.py" />
     <entry file="file://$PROJECT_DIR$/utils/http.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4920">
@@ -543,31 +404,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/requests/adapters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="509" selection-start-line="509" selection-end-line="509" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.7/site-packages/requests/sessions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="532" selection-start-line="532" selection-end-line="532" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/requests/adapters.py" />
+    <entry file="file:///usr/local/lib/python3.7/site-packages/requests/sessions.py" />
     <entry file="file://$PROJECT_DIR$/core/building_spider/company_title" />
     <entry file="file://$PROJECT_DIR$/core/building_spider/company_titles" />
     <entry file="file://$PROJECT_DIR$/core/building_spider/project" />
     <entry file="file://$PROJECT_DIR$/core/building_spider/res_pro" />
-    <entry file="file:///usr/local/lib/python3.7/site-packages/xlwt/ExcelFormula.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/xlwt/ExcelFormula.py" />
     <entry file="file://$PROJECT_DIR$/core/building_spider/finally" />
     <entry file="file://$PROJECT_DIR$/core/building_spider/finally2" />
     <entry file="file://$PROJECT_DIR$/core/building_spider/youer" />
@@ -625,14 +468,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yes" />
-    <entry file="file://$PROJECT_DIR$/temp/yes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15549" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp/no.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -643,62 +478,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/building_spider/building_spider.py">
+    <entry file="file://$PROJECT_DIR$/temp/yes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1564687226588" expanded="true" signature="266:2382" ph="..." />
-            <marker date="1564687226588" expanded="true" signature="2382:2383" ph="..." />
-          </folding>
+        <state relative-caret-position="302">
+          <caret line="333" column="24" lean-forward="true" selection-start-line="333" selection-start-column="24" selection-end-line="333" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/building_spider/detail_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3690">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1564654722771" expanded="true" signature="256:1386" ph="..." />
-            <marker date="1564654722771" expanded="true" signature="1426:2141" ph="..." />
-            <marker date="1564654722771" expanded="true" signature="1948:2141" ph="..." />
-            <marker date="1564654722771" expanded="true" signature="3476:4506" ph="..." />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/temp/no.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/building_spider/filter_project.py">
+    <entry file="file://$PROJECT_DIR$/config/proxy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-            <marker date="1564652331531" expanded="true" signature="86:87" ph="..." />
-            <marker date="1564652331531" expanded="true" signature="375:380" ph="..." />
-          </folding>
+        <state relative-caret-position="147">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/db/redis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="147">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/building_spider/save.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="147">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        <state relative-caret-position="462">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/building_spider/building_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -712,20 +536,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/building_spider/filter_project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="-84">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/proxy">
+    <entry file="file://$PROJECT_DIR$/core/building_spider/detail_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state relative-caret-position="-487">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
         </state>
       </provider>
     </entry>

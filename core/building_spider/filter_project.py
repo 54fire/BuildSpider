@@ -1,6 +1,8 @@
 import threading
 
-from  setting import KEY_WORD
+from setting import KEY_WORD
+
+
 class FilterProject(threading.Thread):
 
     def __init__(self, project_queue, yes_queue, no_queue, FILTER, *args, **kwargs):
@@ -9,7 +11,6 @@ class FilterProject(threading.Thread):
         self.yes_queue = yes_queue
         self.no_queue = no_queue
         self.filter = FILTER
-
 
     def run(self):
         if self.filter:
@@ -20,6 +21,7 @@ class FilterProject(threading.Thread):
                 else:
                     self.no_queue.put(project)
                 self.project_queue.task_done()
+
 
 
 def filter(pro):

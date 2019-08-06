@@ -15,7 +15,7 @@ no_queue = Queue()
 proxy_queue = Queue()
 post_proxy_queue = Queue()
 
-# 筛选项目标题的关键词, 例如学校，公司。。
+# 筛选项目标题的关键词, 例如学校，公司。。,空表示为所有都可以
 # KEY_WORD = ["学校", "公司", "食堂", ...]
 KEY_WORD = []
 
