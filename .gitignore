@@ -1,13 +1,5 @@
 __pycache__/
-__pycache__
-config/proxy
-config/post_proxy
-config/result
-__pycache__/*
-.idea/*
+config/
 .idea/
 .DS_Store
-*/.DS_Store
-.idea
-temp/*
-config/*
+temp/
