@@ -23,3 +23,7 @@ KEY_WORD = []
 YES_FILE = "./temp/yes.txt"
 # 不要的项目文件名
 NO_FILE = "./temp/no.txt"
+
+# 设置request的请求超时时间
+TIMEOUT = 30
+IS_PROXY = True

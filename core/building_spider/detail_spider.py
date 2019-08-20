@@ -5,6 +5,7 @@ from queue import Queue
 
 from utils.http import get_request_headers
 from core.building_spider.project_spider import ProjectProcuder, CodeProcuder
+from setting import TIMEOUT
 
 class DetailProcuder(threading.Thread):
 
@@ -19,7 +20,8 @@ class DetailProcuder(threading.Thread):
     def __get_page_from_html(self, project):
         url = self.url + project.url
         try:
-            response = requests.get(url, headers=get_request_headers(), proxies=self.proxies, timeout=5)
+            response = requests.get(url, headers=get_request_headers(), proxies=self.proxies, timeout=TIMEOUT)
+            # response = requests.get(url, headers=get_request_headers(), timeout=5)
             if response.status_code == 200:
                 return response.content
             else:

@@ -314,7 +314,7 @@ def save_to_excel(filename, sheetname, contents):
 
     workbook.close()
 if __name__ == '__main__':
-    with open('xpf_fin','r') as f:
+    with open('../../temp/yes.txt','r') as f:
         contents = f.readlines()
     # save_onefile_to_excel('fire.xlsx', 'fire')
     save_file_to_excel('fire_main.xlsx', 'fire', contents)

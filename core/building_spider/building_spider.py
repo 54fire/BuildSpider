@@ -8,6 +8,7 @@ import threading
 1. 定义一个类 CompanyCode，用来接收公司名称
 '''
 from utils.http import get_request_headers
+from setting import TIMEOUT, IS_PROXY
 
 '''
 定义一个 CodeProcuder 类，继承于threading.Thread用来获取公司的code
@@ -35,7 +36,10 @@ class CodeProcuder(threading.Thread):
         data = {"complexname": company}
         if self.proxies:
             try:
-                response = requests.post(self.url, headers=get_request_headers(), data=data, proxies=self.proxies, timeout=5)
+                if IS_PROXY:
+                    response = requests.post(self.url, headers=get_request_headers(), data=data, proxies=self.proxies, timeout=TIMEOUT)
+                else:
+                    response = requests.post(self.url, headers=get_request_headers(), data=data, timeout=TIMEOUT)
                 if response.status_code == 200:
                     return response.text
                 else:

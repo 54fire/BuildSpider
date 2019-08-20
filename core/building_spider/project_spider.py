@@ -5,6 +5,7 @@ import re, time, threading
 from utils.http import get_request_headers
 from domain import Building
 from core.building_spider.building_spider import CodeProcuder
+from setting import TIMEOUT
 
 class ProjectProcuder(threading.Thread):
 
@@ -22,7 +23,7 @@ class ProjectProcuder(threading.Thread):
     def __get_page_from_html(self, company_code):
         url = self.url + company_code[1]
         try:
-            response = requests.get(url, headers=get_request_headers(), proxies=self.proxies, timeout=10)
+            response = requests.get(url, headers=get_request_headers(), proxies=self.proxies, timeout=TIMEOUT)
             if response.status_code == 200:
                 return response.content.decode()
             else:
@@ -51,7 +52,7 @@ class ProjectProcuder(threading.Thread):
         proxy = self.post_proxy_queue.get()
         proxies = {'http': proxy}
         try:
-            response = requests.post(url, headers=get_request_headers(), data=data, proxies=proxies, timeout=10)
+            response = requests.post(url, headers=get_request_headers(), data=data, proxies=proxies, timeout=TIMEOUT)
             if response.status_code == 200:
                 self.post_proxy_queue.put(proxy)
                 print(data)
