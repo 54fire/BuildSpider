@@ -25,5 +25,5 @@ YES_FILE = "./temp/yes.txt"
 NO_FILE = "./temp/no.txt"
 
 # 设置request的请求超时时间
-TIMEOUT = 30
+TIMEOUT = 10
 IS_PROXY = True

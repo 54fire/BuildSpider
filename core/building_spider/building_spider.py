@@ -70,7 +70,8 @@ class CodeProcuder(threading.Thread):
             if page:
                 code = self.__get_code_from_page(page, company)
                 result = (company, code)
-                self.company_code_queue.put(result)
+                if code:
+                    self.company_code_queue.put(result)
                 print(result, self.proxies)
             self.company_queue.task_done()
 

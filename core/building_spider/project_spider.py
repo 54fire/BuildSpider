@@ -65,9 +65,9 @@ class ProjectProcuder(threading.Thread):
             print("post请求错误page", data, url, proxies)
             print(e)
 
-    def __post_one(self, company_code):
+    def __post_one(self):
         while True:
-            data = self.data_queue.get()
+            company_code, data = self.data_queue.get()
             html = self.__get_post_page_from_html(data, company_code)
             if html:
                 for project in self.__get_title_and_url_from_page(html, company_code[0]):
@@ -80,10 +80,11 @@ class ProjectProcuder(threading.Thread):
         pc = int(pc)
         for i in range(2, pc+1):
             data = {"$total": tt, "$reload": 0, "$pg": i, "$pgsz": 25}
-            self.data_queue.put(data)
+            company_data = (company_code,data)
+            self.data_queue.put(company_data)
         data_lists = list()
-        for _ in range(10):
-            data_lists.append(threading.Thread(target=self.__post_one, args=(company_code,)))
+        for _ in range(5):
+            data_lists.append(threading.Thread(target=self.__post_one))
         for t in data_lists:
             t.setDaemon(True)
             t.start()
@@ -99,6 +100,8 @@ class ProjectProcuder(threading.Thread):
                 tt_pc = self.__get_project_tt_and_pc(page)
                 # 是否有多个页面
                 if tt_pc:
+                    with open('files/'+company_code[0], 'a') as f:
+                        f.write(tt_pc[0]+'\n')
                     self.__get_post_project(tt_pc, company_code)
             self.company_code_queue.task_done()
 

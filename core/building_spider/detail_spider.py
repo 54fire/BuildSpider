@@ -137,6 +137,9 @@ class DetailProcuder(threading.Thread):
             if page:
                 pro = self.__get_detail_for_project(page, project)
                 print(pro)
+                with open('files/'+pro.company, 'a') as f:
+                    pros = str(pro)
+                    f.write(pros + '\n')
                 self.detail_queue.put(pro)
             self.project_queue.task_done()
 

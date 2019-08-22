@@ -24,15 +24,15 @@ def run():
     for _ in range(1):
         procuders.append(CodeProcuder(company_queue, company_code_queue, proxy_queue))
     # 设置查询项目名称的线程数
-    for _ in range(1):
+    for _ in range(5):
         procuders.append(ProjectProcuder(company_code_queue, project_queue, proxy_queue, post_proxy_queue))
     # 设置过滤项目的线程数
-    for _ in range(1):
-        procuders.append(FilterProject(project_queue, yes_queue, no_queue, 'yes'))
+    # for _ in range(1):
+    #     procuders.append(FilterProject(project_queue, yes_queue, no_queue, 'yes'))
     # 设置获取项目细节的线程数(一般该数值较多)
-    for _ in range(6):
+    for _ in range(25):
         # 1. 需要查询的队列，2. 用来保存的队列，3. 代理ip队列
-        procuders.append(DetailProcuder(yes_queue, detail_queue, proxy_queue))
+        procuders.append(DetailProcuder(project_queue, detail_queue, proxy_queue))
 
     for t in procuders:
         t.setDaemon(True)
@@ -40,10 +40,9 @@ def run():
     company_queue.join()
     company_code_queue.join()
     project_queue.join()
-    yes_queue.join()
 
-    save_file(YES_FILE, detail_queue)
-    save_file(NO_FILE, no_queue)
+    # save_file(YES_FILE, detail_queue)
+    # save_file(NO_FILE, no_queue)
 
 
 if __name__ == '__main__':
