@@ -1,7 +1,19 @@
 import threading
 
-from setting import KEY_WORD
+from setting import KEYWORDS
 
+def keywords_juste(sentences, keywords=KEYWORDS):
+    '''
+    :param keywords: 关键词
+    :param sentences: 需要判断的句子
+    :return: 如果句子中包含关键词就返回true，反之返回false
+    '''
+    if not KEYWORDS:
+        return True
+    for keyword in keywords:
+        if keyword in sentences:
+            return True
+    return False
 
 class FilterProject(threading.Thread):
 
@@ -16,19 +28,9 @@ class FilterProject(threading.Thread):
         if self.filter:
             while True:
                 project = self.project_queue.get()
-                if filter(project):
+                if keywords_juste(project):
                     self.yes_queue.put(project)
                 else:
                     self.no_queue.put(project)
                 self.project_queue.task_done()
 
-
-
-def filter(pro):
-    if not KEY_WORD:
-        return True
-    a = [i for i in KEY_WORD if i in pro.title]
-    if a:
-        return True
-    else:
-        return False

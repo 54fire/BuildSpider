@@ -58,16 +58,21 @@ class ProjectProcuder(threading.Thread):
                 print(data)
                 return response.content.decode()
             else:
-                self.data_queue.put(data)
+                result = (company_code, data)
+                self.data_queue.put(result)
                 print("post请求错误page", data, url, proxies)
         except Exception as e:
-            self.data_queue.put(data)
+            result = (company_code, data)
+            self.data_queue.put(result)
             print("post请求错误page", data, url, proxies)
             print(e)
 
     def __post_one(self):
         while True:
-            company_code, data = self.data_queue.get()
+            res = self.data_queue.get()
+            print(res)
+            company_code = res[0]
+            data = res[1]
             html = self.__get_post_page_from_html(data, company_code)
             if html:
                 for project in self.__get_title_and_url_from_page(html, company_code[0]):
