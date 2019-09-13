@@ -1,4 +1,5 @@
 from queue import Queue
+# from core.db.build_redis import BulidRedis as Queue
 
 
 PROJECT_CLASS = ''
@@ -17,6 +18,8 @@ post_proxy_queue = Queue()
 
 # 筛选项目标题的关键词, 例如学校，公司。。,空表示为所有都可以
 # KEYWORDS = ["学校", "公司", "食堂", ...]
+KEYWORDS = ["市政工程", '其他']
+'''
 KEYWORDS = [
     '小学', '中学', '大学', '专科',
     '学校', '技校', '学院', '职业',
@@ -25,6 +28,7 @@ KEYWORDS = [
     '高中', '初中', '院校', '幼儿',
     '师范', '教学'
 ]
+'''
 
 # 目标项目保存文件名
 YES_FILE = "./temp/yes.txt"
@@ -32,5 +36,5 @@ YES_FILE = "./temp/yes.txt"
 NO_FILE = "./temp/no.txt"
 
 # 设置request的请求超时时间
-TIMEOUT = 30
+TIMEOUT = 10
 IS_PROXY = True

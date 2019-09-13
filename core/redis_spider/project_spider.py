@@ -56,6 +56,7 @@ class ProjectProcuder(threading.Thread):
             response = requests.post(url, headers=get_request_headers(), data=data, proxies=proxies, timeout=TIMEOUT)
             if response.status_code == 200:
                 self.post_proxy_queue.put(proxy)
+                print(data)
                 return response.content.decode()
             else:
                 result = (company_code, data)
@@ -70,14 +71,13 @@ class ProjectProcuder(threading.Thread):
     def __post_one(self):
         while True:
             res = self.data_queue.get()
+            print(res)
             company_code = res[0]
             data = res[1]
             html = self.__get_post_page_from_html(data, company_code)
             if html:
-                print(data)
-                projects = self.__get_title_and_url_from_page(html, company_code[0])
-                for project in projects:
-                    if keywords_juste(project.cls):
+                for project in self.__get_title_and_url_from_page(html, company_code[0]):
+                    if keywords_juste(project.title):
                         self.project_queue.put(project)
             self.data_queue.task_done()
 
@@ -101,24 +101,41 @@ class ProjectProcuder(threading.Thread):
         while True:
             company_code = self.company_code_queue.get()
             page = self.__get_page_from_html(company_code)
-            print(company_code)
             if page:
                 for project in self.__get_title_and_url_from_page(page, company_code[0]):
-                    if keywords_juste(project.cls):
+                    if keywords_juste(project.title):
                         self.project_queue.put(project)
-                    else:
-                        with open(project.company,'a') as f:
-                            f.write(str(project) + '\n')
                 tt_pc = self.__get_project_tt_and_pc(page)
                 # 是否有多个页面
                 if tt_pc:
-                    print(tt_pc)
+                    with open('files/'+company_code[0], 'a') as f:
+                        f.write(tt_pc[0]+'\n')
                     self.__get_post_project(tt_pc, company_code)
             self.company_code_queue.task_done()
 
 if __name__ == '__main__':
-    url = "http://jzsc.mohurd.gov.cn/dataservice/query/comp/compPerformanceListSys/001607220057365689"
-    data = {"$total": 645, "$reload": 0, "$pg": 26, "$pgsz": 25}
-    proxy = {'http': 'http://95.213.195.134:80'}
-    res = requests.post(url, headers=get_request_headers(), data=data, proxies=proxy)
-    print(res.text)
+    s= time.time()
+    company_queue = Queue()
+    company_code_queue = Queue()
+    proxy_queue = Queue()
+    project_queue = Queue()
+    post_proxy_queue = Queue()
+    with open('result', 'r') as f1:
+        for data in f1.readlines():
+            company_queue.put(data.strip())
+
+    with open('proxy', 'r') as f1:
+        for data in f1.readlines():
+            proxy_queue.put(data.strip())
+
+    code_procuders = list()
+    project_procuders = list()
+    for _ in range(3):
+        code_procuders.append(CodeProcuder(company_queue, company_code_queue, proxy_queue))
+        code_procuders.append(ProjectProcuder(company_code_queue, project_queue, proxy_queue, post_proxy_queue))
+    for t in code_procuders:
+        t.setDaemon(True)
+        t.start()
+    company_queue.join()
+    company_code_queue.join()
+    print(round(time.time()-s, 2))

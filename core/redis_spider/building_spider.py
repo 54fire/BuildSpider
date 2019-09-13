@@ -1,20 +1,21 @@
-import requests, re, threading
+import requests
+import re
 from queue import Queue
-from lxml import etree
-
-from core.db.build_redis import RedisClinet
-from utils.http import get_request_headers
-from setting import TIMEOUT, IS_PROXY
+import threading
 
 '''
 目的： 输入公司名称、输出公司code
 1. 定义一个类 CompanyCode，用来接收公司名称
 '''
+from utils.http import get_request_headers
+from setting import TIMEOUT, IS_PROXY
+from core.db.build_redis import BulidRedis
 
+'''
+定义一个 CodeProcuder 类，继承于threading.Thread用来获取公司的code
+'''
 class CodeProcuder(threading.Thread):
-    '''
-    定义一个 CodeProcuder 类，继承于threading.Thread用来获取公司的code
-    '''
+
     def __init__(self, company_queue, code_queue, proxy_queue, *args, **kwargs):
         '''
         定义一个 CodeProcuder 类，继承于threading.Thread用来获取公司的code
@@ -25,13 +26,14 @@ class CodeProcuder(threading.Thread):
         super(CodeProcuder, self).__init__(*args, **kwargs)
         self.company_queue = company_queue
         self.company_code_queue = code_queue
-        self.company_code = RedisClinet('company', 'code')
         self.proxy_queue = proxy_queue
         self.url = "http://jzsc.mohurd.gov.cn/dataservice/query/comp/list"
-
+        if self.proxy_queue.qsize() >0:
+            self.proxies = {'http': self.proxy_queue.get()}
+        else:
+            self.proxies = {}
 
     def __get_page_from_url(self, company):
-        # data = {"qy_name": company}
         data = {"complexname": company}
         if self.proxies:
             try:
@@ -55,54 +57,40 @@ class CodeProcuder(threading.Thread):
 
 
     def __get_code_from_page(self, page, company):
-        elements = etree.HTML(page)
-        code_pattarn = (r'.*?/compDetail/(\d+)')
-        companys = elements.xpath('//td[@class="text-left primary"]/a')
-        if companys:
-            for name in companys:
-                company_name = name.xpath('string(.)')
-                company_name = company_name.strip()
-                if company_name == company:
-                    code = name.xpath('./@href')[0]
-                    code = re.findall(code_pattarn, code)
-                    return (company_name, code[0])
+        pattarn = (r'.*?/compDetail/(\d+)">.*?')
+        code = re.findall(pattarn, page)
+        if code:
+            return code[0]
         else:
-            return (company, None)
+            print("你查寻的公司没有入库：{}".format(company))
 
     def run(self):
+        index = 1
         while True:
-            company = self.company_queue.get()
-            if self.company_code.get(company):
-                company_name = self.company_code.get(company).decode()
-                company_code = (company, company_name)
-                print(company_code)
-                self.company_code_queue.put(company_code)
+            if self.company_queue.qsize() == 0:
+                if index:
+                    print("*********************************************")
+                    print("*********====(查询的公司没有了)=====************")
+                    print("*********************************************")
+                index = 0
             else:
-                if self.proxy_queue.qsize() >0:
-                    self.proxies = {'http': self.proxy_queue.get()}
-                else:
-                    self.proxies = {}
+                index = 1
+                company = self.company_queue.get()
                 page = self.__get_page_from_url(company)
                 if page:
-                    company_code = self.__get_code_from_page(page, company)
-                    if company_code:
-                        if company_code[1]:
-                            self.company_code.set(company_code[0], company_code[1])
-                            self.company_code_queue.put(company_code)
-                            print(company_code, self.proxies)
-                        else:
-                            self.company_code.set(company_code[0], company_code[1])
-                            print("你查寻的公司没有入库：{}".format(company_code))
-                    else:
-                        self.company_queue.put(company)
-                        print("有问题的", company)
-            self.company_queue.task_done()
+                    code = self.__get_code_from_page(page, company)
+                    result = (company, code)
+                    if code:
+                        self.company_code_queue.put(result)
+                    print(result, self.proxies)
+
 
 if __name__ == '__main__':
-    company_queue = Queue()
-    company_code_queue = Queue()
-    proxy_queue = Queue()
-
+    company_queue = BulidRedis("company_queue")
+    company_queue.client.delete("company_queue")
+    company_code_queue = BulidRedis("company_code_queue2")
+    company_code_queue.client.delete("company_code_queue2")
+    proxy_queue = BulidRedis("proxy_queue")
     with open('../../config/result', 'r') as f1:
         for data in f1.readlines():
             company_queue.put(data.strip())
@@ -112,10 +100,14 @@ if __name__ == '__main__':
             proxy_queue.put(data.strip())
 
     code_procuders = list()
-    for _ in range(7):
+    for _ in range(3):
         code_procuders.append(CodeProcuder(company_queue, company_code_queue, proxy_queue))
     for t in code_procuders:
         t.setDaemon(True)
         t.start()
-    company_queue.join()
+    for t in code_procuders:
+        t.join()
     # company_code_queue.join()
+
+
+

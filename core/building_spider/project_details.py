@@ -64,23 +64,23 @@ class DetailProcuder(threading.Thread):
 
 
     def _get_a_content(self, contents):
-        lis = []
-        for t4 in contents:
-            result = t4.xpath('string(.)').strip()
-            lis.append(result)
-        return lis
+        return contents.xpath('string(.)').strip()
 
 
     def __get_ztb_from_ele(self, ele):
-        ztbs = '//div[@id="tab_ztb"]/table/tbody/tr'
-        t1 = ele.xpath(ztbs + '/td[@data-header="序号"]/text()')
-        t2 = ele.xpath(ztbs + '/td[2]/text()')
-        t3 = ele.xpath(ztbs + '/td[3]/text()')
-        t4 = self._get_a_content(ele.xpath(ztbs + '/td[4]'))
-        t5 = self._get_a_content(ele.xpath(ztbs + '/td[5]'))
-        t6 = ele.xpath(ztbs + '/td[6]/text()')
-        t7 = ele.xpath(ztbs + '/td[9]/a/@data-url')
-        tab_ztb = (t1, t2, t3, t4, t5, t6, t7)
+        ztb_xpath = '//div[@id="tab_ztb"]/table/tbody/tr'
+        trs = ele.xpath(ztb_xpath)
+        tab_ztb = []
+        for tr in trs:
+            ztb = {}
+            ztb['序号'] = tr.xpath('./td[@data-header="序号"]/text()')[0]
+            # t2 = ele.xpath(ztbs + '/td[2]/text()')
+            # t3 = ele.xpath(ztbs + '/td[3]/text()')
+            # t4 = self._get_a_content(ele.xpath(ztbs + '/td[4]'))
+            ztb['日期'] = self._get_a_content(tr.xpath('./td[5]')[0])
+            ztb['金额'] = tr.xpath('./td[6]/text()')[0]
+            ztb['url查看'] = tr.xpath('./td[9]/a/@data-url')[0]
+            tab_ztb.append(ztb)
         return tab_ztb
 
     def __get_sgtsc_from_ele(self, ele):
@@ -95,33 +95,46 @@ class DetailProcuder(threading.Thread):
 
 
     def __get_htba_from_ele(self, ele):
-        htbas = '//*[@id="tab_htba"]/table/tbody/tr'
-        s1 = ele.xpath(htbas + '/td[1]/text()')   # 序号
-        s2 = ele.xpath(htbas + '/td[2]//text()')  # 合同类别
-        s3 = ele.xpath(htbas + '/td[5]//text()')  # 合同金额(万元)
-        s4 = ele.xpath(htbas + '/td[6]//text()')  # 合同签订日期
-        s5 = ele.xpath(htbas + '/td[7]/a/@data-url')  # 合同备案URL
-        htba_tab = (s1, s2, s3, s4, s5)
+        htba_xpath = '//*[@id="tab_htba"]/table/tbody/tr'
+        trs = ele.xpath(htba_xpath)
+        htba_tab = []
+        for tr in trs:
+            htba = {}
+            htba['序号'] = tr.xpath('./td[1]/text()')[0]   # 序号
+            htba['合同类别'] = tr.xpath('./td[2]//text()')[0]  # 合同类别
+            htba['金额'] = tr.xpath('./td[5]//text()')[0]  # 合同金额(万元)
+            htba['日期'] = tr.xpath('./td[6]//text()')[0]  # 合同签订日期
+            htba['url查看'] = tr.xpath('./td[7]/a/@data-url')[0]  # 合同备案URL
+            htba_tab.append(htba)
         return htba_tab
 
     def __get_sgxk_from_ele(self, ele):
-        s1 = ele.xpath('//*[@id="tab_sgxk"]/table/tbody/tr/td[1]/text()')   # 序号
-        s2 = ele.xpath('//*[@id="tab_sgxk"]/table/tbody/tr/td[@data-header="合同金额（万元）"]/text()')   # 合同金额(万元）
-        s3 = ele.xpath('//*[@id="tab_sgxk"]/table/tbody/tr/td[@data-header="面积（平方米）"]/text()')      # 面积(平方米)
-        s4 = ele.xpath('//*[@id="tab_sgxk"]/table/tbody/tr/td[@data-header="发证日期"]/text()')  # 发证日期
-        s5 = ele.xpath('//*[@id="tab_sgxk"]/table/tbody/tr/td[@data-header="查看"]/a/@data-url')  # 施工许可URL
-        sgxk_tab = (s1, s2, s3, s4, s5)
+        sgxk_xpath = '//*[@id="tab_sgxk"]/table/tbody/tr'
+        trs = ele.xpath(sgxk_xpath)
+        sgxk_tab = []
+        for tr in trs:
+            sgxk = {}
+            sgxk['序号'] = tr.xpath('./td[1]/text()')[0]   # 序号
+            sgxk['金额'] = tr.xpath('./td[@data-header="合同金额（万元）"]/text()')[0]   # 合同金额(万元）
+            sgxk['面积'] = tr.xpath('./td[@data-header="面积（平方米）"]/text()')[0]      # 面积(平方米)
+            sgxk['日期'] = tr.xpath('./td[@data-header="发证日期"]/text()')[0]  # 发证日期
+            sgxk['url查看'] = tr.xpath('./td[@data-header="查看"]/a/@data-url')[0]  # 施工许可URL
+            sgxk_tab.append(sgxk)
         return sgxk_tab
 
     def __get_jgysba_from_ele(self, ele):
-        jgysbas = '//div[@id="tab_jgysba"]/table/tbody/tr'
-        t1 = ele.xpath(jgysbas + '/td[1]/text()')
-        t2 = ele.xpath(jgysbas + '/td[4]/text()')
-        t3 = ele.xpath(jgysbas + '/td[5]/text()')
-        t4 = ele.xpath(jgysbas + '/td[6]/text()')
-        t5 = ele.xpath(jgysbas + '/td[7]/text()')
-        t6 = ele.xpath(jgysbas + '/td/a/@data-url')
-        jgysba_tab = (t1, t2, t3, t4, t5, t6)
+        jgysbas_xpath = '//div[@id="tab_jgysba"]/table/tbody/tr'
+        trs = ele.xpath(jgysbas_xpath)
+        jgysba_tab = []
+        for tr in trs:
+            jgysba = {}
+            jgysba['序号'] = tr.xpath('./td[1]/text()')[0]
+            jgysba['金额'] = tr.xpath('./td[4]/text()')[0]
+            jgysba['面积'] = tr.xpath('./td[5]/text()')[0]
+            jgysba['实际开工日期'] = tr.xpath('./td[6]/text()')[0]
+            jgysba['实际竣工日期'] = tr.xpath('./td[7]/text()')[0]
+            jgysba['url查看'] = tr.xpath('./td/a/@data-url')[0]
+            jgysba_tab.append(jgysba)
         return jgysba_tab
 
     def __get_others_from_ele(self, ele, project):
@@ -135,15 +148,15 @@ class DetailProcuder(threading.Thread):
         ztb, sgtsc, htba, sgxk, jgysba = self.__get_nums_from_ele(ele)
         self.__get_others_from_ele(ele, project)
         # 是否获取招投标
-        project.ztb = self.__get_ztb_from_ele(ele) if int(ztb) > 0 else None
+        project.ztb = self.__get_ztb_from_ele(ele) if int(ztb) > 0 else []
         # 是否获取施工图审查
-        project.sgtsc = self.__get_sgtsc_from_ele(ele) if int(sgtsc) > 0 else None
+        # project.sgtsc = self.__get_sgtsc_from_ele(ele) if int(sgtsc) > 0 else []
 
-        project.htba = self.__get_htba_from_ele(ele) if int(htba) > 0 else None
+        project.htba = self.__get_htba_from_ele(ele) if int(htba) > 0 else []
 
-        project.sgxk = self.__get_sgxk_from_ele(ele) if int(sgxk) > 0 else None
+        project.sgxk = self.__get_sgxk_from_ele(ele) if int(sgxk) > 0 else []
 
-        project.jgysba = self.__get_jgysba_from_ele(ele) if int(jgysba) > 0 else None
+        project.jgysba = self.__get_jgysba_from_ele(ele) if int(jgysba) > 0 else []
 
         return project
 
@@ -168,15 +181,15 @@ if __name__ == '__main__':
     post_proxy_queue = Queue()
     project_queue = Queue()
     detail_queue = Queue()
-    with open('result', 'r') as f1:
+    with open('../../config/result', 'r') as f1:
         for data in f1.readlines():
             company_queue.put(data.strip())
 
-    with open('proxy', 'r') as f1:
+    with open('../../config/proxy', 'r') as f1:
         for data in f1.readlines():
             proxy_queue.put(data.strip())
 
-    with open('post_proxy', 'r') as f1:
+    with open('../../config/post_proxy', 'r') as f1:
         for data in f1.readlines():
             post_proxy_queue.put(data.strip())
 

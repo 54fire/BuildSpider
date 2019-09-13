@@ -26,29 +26,13 @@ class DetailProcuder(threading.Thread):
                 return response.content
             else:
                 self.project_queue.put(project)
-                print("detail_spider错误url：", response.status_code)
-                if self.proxy_queue.qsize() > 0:
-                    self.proxies = {'http': self.proxy_queue.get()}
-                else:
-                    print("The proxy_queue is empty!\n")
-                    with open('./config/proxy', 'r', encoding='utf-8') as f1:
-                        for data in f1.readlines():
-                            self.proxy_queue.put(data.strip())
+                self.proxies = self.proxy_queue.get()
                 self.proxies = {'http': self.proxy_queue.get()}
-
+                print("detail_spider错误url：", response.status_code)
         except Exception as e:
             self.project_queue.put(project)
+            self.proxies = {'http': self.proxy_queue.get()}
             print("detail_spider错误url：",e)
-            if self.proxy_queue.qsize() > 0:
-                self.proxies = {'http': self.proxy_queue.get()}
-            else:
-                print("The proxy_queue is empty!\n")
-                with open('./config/proxy', 'r', encoding='utf-8') as f1:
-                    for data in f1.readlines():
-                        self.proxy_queue.put(data.strip())
-                self.proxies = {'http': self.proxy_queue.get()}
-
-
 
 
     def __get_ele_from_page(self, page):
@@ -134,17 +118,16 @@ class DetailProcuder(threading.Thread):
         ele = self.__get_ele_from_page(page)
         ztb, sgtsc, htba, sgxk, jgysba = self.__get_nums_from_ele(ele)
         self.__get_others_from_ele(ele, project)
-        # 是否获取招投标
-        project.ztb = self.__get_ztb_from_ele(ele) if int(ztb) > 0 else None
-        # 是否获取施工图审查
-        project.sgtsc = self.__get_sgtsc_from_ele(ele) if int(sgtsc) > 0 else None
-
-        project.htba = self.__get_htba_from_ele(ele) if int(htba) > 0 else None
-
-        project.sgxk = self.__get_sgxk_from_ele(ele) if int(sgxk) > 0 else None
-
-        project.jgysba = self.__get_jgysba_from_ele(ele) if int(jgysba) > 0 else None
-
+        if int(ztb) > 0:
+            project.ztb = self.__get_ztb_from_ele(ele)
+        if int(sgtsc) > 0:
+            project.sgtsc = self.__get_sgtsc_from_ele(ele)
+        if int(htba) > 0:
+            project.htba = self.__get_htba_from_ele(ele)
+        if int(sgxk) > 0:
+            project.sgxk = self.__get_sgxk_from_ele(ele)
+        if int(jgysba) > 0:
+            project.jgysba = self.__get_jgysba_from_ele(ele)
         return project
 
     def run(self):
@@ -154,7 +137,7 @@ class DetailProcuder(threading.Thread):
             if page:
                 pro = self.__get_detail_for_project(page, project)
                 print(pro)
-                with open('fire/'+pro.company, 'a') as f:
+                with open('files/'+pro.company, 'a') as f:
                     pros = str(pro)
                     f.write(pros + '\n')
                 self.detail_queue.put(pro)

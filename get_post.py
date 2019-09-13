@@ -52,6 +52,7 @@ def save_file_to_excel(workbook, sheetname, contents):
     # 正文写入
     for content in contents:
         content_dict = eval(content)
+        print(sheetname)
         project = Building(**content_dict)
         ztb_index, jgysba_index, sgxk_index, sgtsc_index, htba_index = 0, 0, 0, 0, 0
         if project.ztb:
@@ -108,14 +109,29 @@ def save_file_to_excel(workbook, sheetname, contents):
     # Add a format. Green fill with dark green text.
     format2 = workbook.add_format({'bg_color': '#C6EFCE',
                                    'font_color': '#006100'})
-    work_sheet.conditional_format(1,4,index,4, {'type': 'cell',
+
+    work_sheet.conditional_format(1,11,index,11, {'type': 'cell',
                                                 'criteria': '>=',
-                                                'value': 50000,
+                                                'value': 19999,
                                                 'format': format1})
+    work_sheet.conditional_format(1,19,index,19, {'type': 'cell',
+                                                  'criteria': '>=',
+                                                  'value': 19999,
+                                                  'format': format1})
+    work_sheet.conditional_format(1,22,index,22, {'type': 'cell',
+                                                  'criteria': '>=',
+                                                  'value': 19999,
+                                                  'format': format1})
+    work_sheet.conditional_format(1,26,index,26, {'type': 'cell',
+                                                  'criteria': '>=',
+                                                  'value': 19999,
+                                                  'format': format1})
+    '''
     work_sheet.conditional_format(1,5,index,5, {'type': 'cell',
                                                 'criteria': '>=',
                                                 'value': 100000,
                                                 'format': format2})
+    '''
     work_sheet.autofilter(0,0,index,25)
     # workbook.close()
 

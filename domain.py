@@ -1,5 +1,4 @@
 
-
 class Building(object):
 
     def __init__(self, company='', title='', cls='', use='', url='', all_money='', all_area='', ztb=[], sgtsc=[], htba=[], sgxk=[], jgysba=[]):
